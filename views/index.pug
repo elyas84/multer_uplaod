@@ -1,0 +1,115 @@
+meta(charset='UTF-8')
+meta(name='viewport', content='width=device-width,initial-scale=1')
+script(src='https://kit.fontawesome.com/0e03cf8df9.js', crossorigin='anonymous')
+link(href='https://fonts.googleapis.com/css2?family=Spartan&display=swap', rel='stylesheet')
+link(rel="stylesheet", href="style.css")
+title Node image upload
+style.
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+
+  body {
+      font-family: 'Spartan', sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+  }
+  header {
+        background-color: rgb(75, 123, 177);
+        height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  }
+
+  .header-txt {
+      color: white;
+  }
+
+  .form-section {
+      margin: 3em;
+  }
+  .posting_area {
+      display: flex;
+      flex-direction: column;
+      /* height: 100vh; */
+      width: 100%;
+  }
+
+  input[type = "file"] {
+      display: none;
+  }
+  label {
+      cursor: pointer;
+      color: rgb(75, 123, 177);
+      width: 100%; 
+      border-radius: 10px;
+
+  }
+
+  label i {
+      width: 100%; 
+      font-size: 3em;
+      color: rgb(75, 123, 177);
+    
+  }
+  button {
+      background-color: lightskyblue;
+      border: none;
+      text-transform: uppercase;
+      text-align: center;
+      /* width: 20%; */
+      cursor: pointer;
+      border-radius: 10px;
+      margin-top: 3em;
+  }
+  button i {
+      width: 100%;
+      color: white;
+      font-size: 1.2em;
+      padding: 1em;
+  }
+  button:focus {
+      outline: none;
+  }
+
+  .imgGrid {
+      display: flex;
+      width: 20%;
+      height: 40vh;
+  }
+  .imgGrid img {
+      width: 100%;
+      height: 100%;
+  }
+      
+  
+header
+  .header-txt
+    h1 upload your favorite photos
+.posting_area
+  .form-section
+    form(action='/api/upload', enctype='multipart/form-data', method='POST')
+      //- input(type='text', name='nameOfimg')
+      input#myImg(type='file', name='myImg')
+      label(for='myImg')
+        i.fas.fa-images
+      button(type='submit')
+        i.fas.fa-upload
+      .imgGrid
+        - var url= "http://localhost:8000/imgfiles/";
+        //- - console.log(url); 
+        each img in images
+          - url= url+img
+           
+          img(src=url, alt="", srcset="")
+           
+          - url= "http://localhost:8000/imgfiles/";
+          //- - console.log(url)
+
+          
+  
+//- script(src='./script.js')
